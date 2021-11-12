@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign-Up Page</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+  </head>
+</head>
+<body class="text-center">
+  <form action="logged.html">
+    <form class="form-signin">
+      <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5--w3rVhQ9troou9XWIApvg3zwxDjyCljrA&usqp=CAU" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Sign-Up</h1>
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" required id="email" class="form-control" placeholder="Email address" required autofocus onkeyup="return validate1()">
+      <label for="password" class="sr-only">Password</label>
+      <label for="error" id="error"></label>
+      <input type="password" required id="password" class="form-control" placeholder="Password" required onkeyup="return validate2()">
+      <div class = "criteria">
+        <li id = "upper">Atleast one Uppercase</li>
+        <li id = "lower">Atleast one Lowercase</li>
+        <li id = "number">Atleast one Number</li>
+        <li id = length>Minimum Password Length is 8</li>
+      </div>
+      <label for="password" class="sr-only">Confirm Password</label>
+      <input type="password" required id="password_confirm" class="form-control" placeholder="Password" required onkeyup="return confirm_password()">
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button id=submit>Sign-Up</button>
+    </form>
+    </form>
+    <script>
+      function validate2(){
+        var pass = document.getElementById("password");
+        var upper = document.getElementById("upper");
+        var number = document.getElementById("number");
+        var lower = document.getElementById("lower");
+        var length = document.getElementById("length");
+       if (pass.value.match(/[0-9]/)){
+         number.style.color = "green";
+       }
+       else{
+         number.style.color = "red"
+       }
+       if (pass.value.match(/[A-Z]/)){
+        upper.style.color = "green"
+       }
+       else{
+        upper.style.color = "red"
+       }
+       if (pass.value.match(/[a-z]/)){
+        lower.style.color = "green"
+      }
+       else{
+         lower.style.color = "red"
+       }
+       if (pass.value.length<8){
+        length.style.color = "red";
+       }
+       else{
+         length.style.color = "green"
+       }
+      }
+
+    function confirm_password(){
+      var pass1 = document.getElementById("password");
+      var pass2 = document.getElementById("password_confirm");
+      if (pass1.value == pass2.value){
+        alert("Password Verified")
+      }
+    }
+
+    function validate1(){
+      var email = document.getElementById("email")
+      var error = docuent.getElementById("error"); 
+      let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})?$/
+      if (regexp.test(email.value)){
+        error.innerHTML = "Valid";
+        error.style.color = "green";
+        return true
+      }
+      else{
+        error.innerHTML = "Invalid";
+        error.style.color="red";
+        return false;
+      }
+    }
+      
+    </script>
+  </body>
+</html>

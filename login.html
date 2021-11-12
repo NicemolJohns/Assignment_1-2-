@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+
+</head>
+<body class="text-center">
+  <form action="logged.html">
+    <form class="form-signin">
+      <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5--w3rVhQ9troou9XWIApvg3zwxDjyCljrA&usqp=CAU" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+      <label for="email" class="sr-only">Email Address</label>
+      <input type="email" required id="email"placeholder="Email address" required autofocus>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" required id="password"placeholder="Password" required onkeyup="return validate2()">
+      <div class = "criteria">
+        <li id = "upper">Atleast one Uppercase</li>
+        <li id = "lower">Atleast one Lowercase</li>
+        <li id = "number">Atleast one Number</li>
+        <li id = length>Minimum Password Length is 8</li>
+      </div>
+      <div class="container">
+        <div class = "indicator">
+          <span class = "weak">1</span>
+          <span class = "Medium">2</span>
+          <span class = "Strong">3</span>
+        </div>
+      </div> 
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <div>
+        <a href="signup.html">New User?Sign-Up</a>
+      </div>
+      <button id = "submit">LogIn</button>
+    </form>
+    </form>
+    <script>
+      function validate2(){
+        var pass = document.getElementById("password");
+        var upper = document.getElementById("upper");
+        var number = document.getElementById("number");
+        var lower = document.getElementById("lower");
+        var length = document.getElementById("length");
+       if (pass.value.match(/[0-9]/)){
+         number.style.color = "green";
+       }
+       else{
+         number.style.color = "red"
+       }
+       if (pass.value.match(/[A-Z]/)){
+        upper.style.color = "green"
+       }
+       else{
+        upper.style.color = "red"
+       }
+       if (pass.value.match(/[a-z]/)){
+        lower.style.color = "green"
+       }
+       else{
+         lower.style.color = "red"
+       }
+       if (pass.value.length<8){
+        length.style.color = "red";
+       }
+       else{
+         length.style.color = "green"
+       }
+      }
+    </script>
+  </body>
+</html>

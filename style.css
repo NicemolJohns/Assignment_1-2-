@@ -1,0 +1,11 @@
+.carousel {
+    position:absolute;
+    top:0;    
+}
+.navbar {
+    position:absolute;
+    top:0px;
+    z-index:10;
+    background:#fff;
+    width:100%;
+}
